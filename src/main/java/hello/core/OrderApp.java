@@ -11,8 +11,14 @@ import hello.core.member.MemberServiceImpl;
 public class OrderApp { //테스트용, main매서드로 테스트 하는것은 매우 좋지 않다고 함
 
     public static void main(String[] args) {
-        MemberService memberService = new MemberServiceImpl();
-        OrderService orderService = new OrderServiceImpl();
+
+
+        AppConfig appConfig = new AppConfig();
+        OrderService orderService = appConfig.orderService();
+        MemberService memberService = appConfig.memberService();
+
+//        MemberService memberService = new MemberServiceImpl();
+//        OrderService orderService = new OrderServiceImpl();
 
         Long memberId = 1L;
         Member member = new Member(memberId, "memberA", Grade.VIP);
