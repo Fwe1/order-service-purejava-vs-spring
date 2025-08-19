@@ -10,6 +10,7 @@ public class FixDiscountPolicy implements DiscountPolicy {
     @Override
     public int discount(Member member, int price) {
         if( member.getGrade() == Grade.VIP) {
+
             return discountFixAmount;
         } else {
             return 0;
