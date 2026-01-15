@@ -8,9 +8,10 @@ import hello.core.member.Grade;
 import hello.core.member.Member;
 import hello.core.member.MemberService;
 import hello.core.member.MemberServiceImpl;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
 public class OrderServiceTest {
@@ -35,7 +36,7 @@ public class OrderServiceTest {
         memberService.join(member);
 
         Order order = orderService.createOrder(memberId, "itemA", 10000);
-        Assertions.assertThat(order.getDiscountPrice()).isEqualTo(1000);
+        assertEquals(order.getDiscountPrice(), 1000);
         /*Assertions.assertThat 사용?
         * 테스트에서만 사용 -> 일반 APP로직에선 사용 안함
         * 테스트 실패 시 에러 메세지를 통해 어디서 실패했는지 알려준다고 함 -> 로직 오류 포함

@@ -9,13 +9,13 @@ public class MemberApp {
     public static void main(String[] args) {
         AppConfig appConfig = new AppConfig();
         MemberService memberService = appConfig.memberService();
-//        MemberService memberService = new MemberServiceImpl();
+//        MemberService memberService = new MemberServiceImpl(); 이건 이제부터 AppConfig에서 결정할것임
         Member member = new Member(1L, "memberA", Grade.VIP);
         memberService.join(member);
 
         Member findMember = memberService.findMember(1L);
         System.out.println("find Member = " + findMember.getName());
-        System.out.println("enw member = " + member.getName());
+        System.out.println("new member = " + member.getName());
 
     }
 }

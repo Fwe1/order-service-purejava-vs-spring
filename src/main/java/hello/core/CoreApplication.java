@@ -1,13 +1,16 @@
 package hello.core;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApplication
+import hello.core.Order.OrderService;
+import hello.core.member.MemberService;
+
 public class CoreApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(CoreApplication.class, args);
+        AppConfig appConfig = new AppConfig();
+
+        MemberService memberService = appConfig.memberService();
+        OrderService orderService = appConfig.orderService();
 	}
 
 }

@@ -11,9 +11,11 @@ public class OrderServiceImpl implements OrderService{
 
     private final MemberRepository memberRepository;
     private final DiscountPolicy discountPolicy;
-//    private final DiscountPolicy dIscountPolicy = new FixDiscountPolicy();
-//    private final DiscountPolicy dIscountPolicy = new RateDiscountPolicy();
-    //DIP위반, 정책 바뀌자마자 클라(OrderServiceImpl)를 어쩃든 수정하는 꼴이라 OCP도 위반
+//    private final DiscountPolicy dIscountPolicy = new FixDiscountPolicy(); 역할과 구현 둘 다 의존하는 꼴
+//    private final DiscountPolicy dIscountPolicy = new RateDiscountPolicy(); 22
+    //DIP위반(DicouuntPolicy를 의존해야함),
+    //정책 바뀌자마자 클라(OrderServiceImpl)를 어쩃든 수정하는 꼴이라 OCP도 위반
+
 
 
     public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
