@@ -11,19 +11,20 @@ class ApplicationContextTest {
 
     AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext((AppConfig.class));
 
-    @Test
-    @DisplayName("모든 빈 출력하기")
-    void findAllBean() {
-        String[] beanDefinitionNames = ac.getBeanDefinitionNames();
-        for (String beanDefinitionName : beanDefinitionNames) {
-            Object bean = ac.getBean(beanDefinitionName);
-            System.out.println("name = " + beanDefinitionName + " object = " + bean);
+//    @Test
+//    @DisplayName("모든 빈 출력하기") // 스프링이 내부적으로 사용하는 빈까지 출력
+//    void findAllBean() {
+//        String[] beanDefinitionNames = ac.getBeanDefinitionNames();
+//        for (String beanDefinitionName : beanDefinitionNames) {
+//            Object bean = ac.getBean(beanDefinitionName);
+//            System.out.println("name = " + beanDefinitionName + " object = " + bean);
+//
+//
+//        }
+//    }
 
-
-        }
-    }
     @Test
-    @DisplayName("애플리케이션 빈 출력하기")
+    @DisplayName("애플리케이션 빈 출력하기") // 내가 등록한 빈만 출력
     void findApplicationBean() {
         String[] beanDefinitionNames = ac.getBeanDefinitionNames();
         for (String beanDefinitionName : beanDefinitionNames) {

@@ -18,9 +18,7 @@ public class OrderApp { //테스트용, main매서드로 테스트 하는것은 
 //        AppConfig appConfig = new AppConfig();
 //        OrderService orderService = appConfig.orderService();
 //        MemberService memberService = appConfig.memberService();
-//
-//        MemberService memberService = new MemberServiceImpl();
-//        OrderService orderService = new OrderServiceImpl();
+
 
         ApplicationContext applicationContext = new AnnotationConfigApplicationContext(AppConfig.class);
 
