@@ -41,6 +41,8 @@ public class SingletonTest {
 
         System.out.println("single1 = " + single1);
         System.out.println("single2 = " + single2);
+
+        assertThat(single1).isSameAs(single2);
     }
 
     @Test
@@ -51,10 +53,12 @@ public class SingletonTest {
         ApplicationContext ac = new AnnotationConfigApplicationContext(AppConfig.class);
 
 
+        //memberService인 Bean을 가져오는데 객체가 MemberService타입으로 캐스팅 가능한지 검사해줘 라는 뜻
+        //스프링이 이걸 보고 memberService 빈(구현체)을 생성하는 것이 아니라, 이미 생성해놓았음
         MemberService memberService1 = ac.getBean("memberService", MemberService.class);
         MemberService memberService2 = ac.getBean("memberService", MemberService.class);
 
-        //참조값이 다른 것을 확인
+        //참조값이 같은 것을 확인
         System.out.println("memberService = " + memberService1);
         System.out.println("memberService = " + memberService2);
 
